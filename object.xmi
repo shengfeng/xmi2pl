@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701">
+  <uml:Model name="Component Diagram2" xmi:id="_3P0joLfPEeeULe-XyZKVIg">
+    <packagedElement name="Vehicle" xmi:id="_3P0jobfPEeeULe-XyZKVIg" xmi:type="uml:Class">
+      <ownedAttribute name="registration" type="_3P0j2LfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jorfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute name="numWheels" type="_3P0j2bfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jo7fPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute association="_3P0j1LfPEeeULe-XyZKVIg" name="" type="_3P0jrrfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jpLfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue xmi:id="_3P0jpbfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_3P0jprfPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Car" xmi:id="_3P0jp7fPEeeULe-XyZKVIg" xmi:type="uml:Class">
+      <generalization general="_3P0jobfPEeeULe-XyZKVIg" xmi:id="_3P0jqLfPEeeULe-XyZKVIg" xmi:type="uml:Generalization"/>
+      <ownedAttribute name="category" type="_3P0j2bfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jqbfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+    </packagedElement>
+    <packagedElement name="Motorcycle" xmi:id="_3P0jqrfPEeeULe-XyZKVIg" xmi:type="uml:Class">
+      <generalization general="_3P0jobfPEeeULe-XyZKVIg" xmi:id="_3P0jq7fPEeeULe-XyZKVIg" xmi:type="uml:Generalization"/>
+      <ownedAttribute name="numSaddles" type="_3P0j2bfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jrLfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute name="cc" type="_3P0j2bfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jrbfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+    </packagedElement>
+    <packagedElement name="Company" xmi:id="_3P0jrrfPEeeULe-XyZKVIg" xmi:type="uml:Class">
+      <ownedAttribute name="name" type="_3P0j2LfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jr7fPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute name="numEmployees" type="_3P0j2bfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jsLfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute association="_3P0j1LfPEeeULe-XyZKVIg" name="" type="_3P0jobfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jsbfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue xmi:id="_3P0jsrfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="*" xmi:id="_3P0js7fPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_3P0j1bfPEeeULe-XyZKVIg" name="" type="_3P0jubfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jtLfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_3P0jtbfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="*" xmi:id="_3P0jtrfPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedOperation name="stockPrice" visibility="public" xmi:id="_3P0jt7fPEeeULe-XyZKVIg" xmi:type="uml:Operation">
+        <ownedParameter direction="return" type="_3P0j27fPEeeULe-XyZKVIg" xmi:id="_3P0juLfPEeeULe-XyZKVIg" xmi:type="uml:Parameter"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement name="RentalStation" xmi:id="_3P0jubfPEeeULe-XyZKVIg" xmi:type="uml:Class">
+      <ownedAttribute name="location" type="_3P0j2LfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jurfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute association="_3P0j07fPEeeULe-XyZKVIg" name="employee" type="_3P0jxLfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0ju7fPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue xmi:id="_3P0jvLfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="*" xmi:id="_3P0jvbfPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_3P0j1bfPEeeULe-XyZKVIg" name="" type="_3P0jrrfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jvrfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_3P0jv7fPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_3P0jwLfPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_3P0j1rfPEeeULe-XyZKVIg" name="manager" type="_3P0jxLfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jwbfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_3P0jwrfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_3P0jw7fPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Person" xmi:id="_3P0jxLfPEeeULe-XyZKVIg" xmi:type="uml:Class">
+      <ownedAttribute name="firstname" type="_3P0j2LfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jxbfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute name="lastname" type="_3P0j2LfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jxrfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute name="age" type="_3P0j2bfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jx7fPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute name="isMarried" type="_3P0j2rfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jyLfPEeeULe-XyZKVIg" xmi:type="uml:Property"/>
+      <ownedAttribute association="_3P0j07fPEeeULe-XyZKVIg" name="employer" type="_3P0jubfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jybfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue xmi:id="_3P0jyrfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_3P0jy7fPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_3P0j1rfPEeeULe-XyZKVIg" name="managedStation" type="_3P0jubfPEeeULe-XyZKVIg" visibility="private" xmi:id="_3P0jzLfPEeeULe-XyZKVIg" xmi:type="uml:Property">
+        <lowerValue xmi:id="_3P0jzbfPEeeULe-XyZKVIg" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_3P0jzrfPEeeULe-XyZKVIg" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedOperation name="income" visibility="public" xmi:id="_3P0jz7fPEeeULe-XyZKVIg" xmi:type="uml:Operation">
+        <ownedParameter direction="return" type="_3P0j2bfPEeeULe-XyZKVIg" xmi:id="_3P0j0LfPEeeULe-XyZKVIg" xmi:type="uml:Parameter"/>
+        <ownedParameter name="d" type="_3P0j0rfPEeeULe-XyZKVIg" xmi:id="_3P0j0bfPEeeULe-XyZKVIg" xmi:type="uml:Parameter"/>
+      </ownedOperation>
+    </packagedElement>
+    <packagedElement name="Date" xmi:id="_3P0j0rfPEeeULe-XyZKVIg" xmi:type="uml:Class"/>
+    <packagedElement memberEnd="_3P0jybfPEeeULe-XyZKVIg _3P0ju7fPEeeULe-XyZKVIg" name="" xmi:id="_3P0j07fPEeeULe-XyZKVIg" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_3P0jsbfPEeeULe-XyZKVIg _3P0jpLfPEeeULe-XyZKVIg" name="" xmi:id="_3P0j1LfPEeeULe-XyZKVIg" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_3P0jvrfPEeeULe-XyZKVIg _3P0jtLfPEeeULe-XyZKVIg" name="" xmi:id="_3P0j1bfPEeeULe-XyZKVIg" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_3P0jzLfPEeeULe-XyZKVIg _3P0jwbfPEeeULe-XyZKVIg" name="" xmi:id="_3P0j1rfPEeeULe-XyZKVIg" xmi:type="uml:Association"/>
+    <packagedElement name="PrimitiveTypes" xmi:id="_3P0j17fPEeeULe-XyZKVIg" xmi:type="uml:Package">
+      <packagedElement name="string" xmi:id="_3P0j2LfPEeeULe-XyZKVIg" xmi:type="uml:PrimitiveType"/>
+      <packagedElement name="int" xmi:id="_3P0j2bfPEeeULe-XyZKVIg" xmi:type="uml:PrimitiveType"/>
+      <packagedElement name="boolean" xmi:id="_3P0j2rfPEeeULe-XyZKVIg" xmi:type="uml:PrimitiveType"/>
+      <packagedElement name="float" xmi:id="_3P0j27fPEeeULe-XyZKVIg" xmi:type="uml:PrimitiveType"/>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>
