@@ -22,9 +22,9 @@ def printx(s, end = '\n'):
         sys.stdout.write(s)
         sys.stdout.write('\n')
     elif isinstance(s,str):
-        s = s.decode(file_encoding)
+        # s = s.decode(file_encoding)
         s += end
-        s = s.encode(output_encoding)
+        # s = s.encode(output_encoding)
         sys.stdout.write(s)
     elif isinstance(s,dict):
         s = json.dumps(s, indent=4, ensure_ascii=False)
@@ -32,7 +32,7 @@ def printx(s, end = '\n'):
         s = s.encode(output_encoding)
         sys.stdout.write(s)
     else:
-        print s
+        print(s)
     sys.stdout.flush()
 
 
@@ -95,7 +95,7 @@ for item in items:
     elif item.getAttribute('xmi:type') == 'uml:Association':
     	# 关联关系
         element['id'] = 's%d'%term_cnt['s']
-    	element['memberEnd'] = item.getAttribute('memberEnd').split()
+        element['memberEnd'] = item.getAttribute('memberEnd').split()
         idMap[element['xmi:id']] = element['id']
         term_cnt['s'] += 1
         Association_list.append(element)
@@ -128,17 +128,17 @@ for item in items:
         elist = item.childNodes
         # 如果不包含 lowerValue 和 upperValue 就退出当前循环
         if len(elist) == 0:
-        	continue
+            continue
         element = {
             'Endid' : 'm%d'%term_cnt['m'],
-        	'Classid' : idMap[item.getAttribute('xmi:id')]['classid'],
-        	'Associd' : idMap[item.getAttribute('association')],
+            'Classid' : idMap[item.getAttribute('xmi:id')]['classid'],
+            'Associd' : idMap[item.getAttribute('association')],
         }
         # 取出 lowerValue 和 upperValue
         for e in elist:
-        	if e.nodeName == 'lowerValue' or e.nodeName == 'upperValue':
-        		key = 'Lowval' if e.nodeName == 'lowerValue' else 'Upval'
-        		if e.hasAttribute('value'):
+            if e.nodeName == 'lowerValue' or e.nodeName == 'upperValue':
+        		  key = 'Lowval' if e.nodeName == 'lowerValue' else 'Upval'
+        	    if e.hasAttribute('value'):
         			element[key] = 'n' if e.getAttribute('value')=='*' else e.getAttribute('value')
         		else:
         			element[key] = '0'
