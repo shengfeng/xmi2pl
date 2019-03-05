@@ -1,13 +1,14 @@
 #coding=utf8
 import sys
 from xml.dom.minidom import parse
+import time
 
 # 待解析 XMI 文件
-xmi_filename = 'object.xmi'
+xmi_filename = 'data/online shopping.xmi'
 
 # 生成的 prolog 文件
-pl_filename = '%s.pl'%xmi_filename.split('.')[0]
-
+# pl_filename = 'result/%s.pl'%xmi_filename.split('.')[0]
+pl_filename = 'result/online shopping.pl'
 
 # 编码信息
 input_encoding = sys.stdin.encoding
@@ -38,6 +39,9 @@ def printx(s, end = '\n'):
 
 
 # 解析 XMI 文档，生成 DOM tree
+start_time = time.time()
+
+model_element = 0
 printx('开始解析 XMI 文件……')
 DOMTree = parse(xmi_filename)
 collection = DOMTree.documentElement
@@ -66,6 +70,10 @@ Operation_list = []
 Generalization_list = []
 Rolename_list = []
 
+
+names = {'Class_list', 'Attribute_list', 'PrimitiveTypes_list', 'Association_list', 'AssociationDetail_list',
+         'Multiplicity_list', 'Parameter_list', 'Operation_list', 'Generalization_list', 'Rolename_list'}
+
 # id 映射表
 idMap = {}
 
@@ -87,18 +95,21 @@ for item in items:
         idMap[element['xmi:id']] = element['id']
         term_cnt['c'] += 1
         Class_list.append(element)
+        model_element += 1
 
     elif item.getAttribute('xmi:type') == 'uml:PrimitiveType':
         idMap[element['xmi:id']] = element['name']
         PrimitiveTypes_list.append(element)
+        model_element += 1
 
     elif item.getAttribute('xmi:type') == 'uml:Association':
-    	# 关联关系
+        # 关联关系
         element['id'] = 's%d'%term_cnt['s']
         element['memberEnd'] = item.getAttribute('memberEnd').split()
         idMap[element['xmi:id']] = element['id']
         term_cnt['s'] += 1
         Association_list.append(element)
+        model_element += 1
 
 
 # 获取所有 ownedAttribute 元素
@@ -123,6 +134,7 @@ for item in items:
 
         idMap[element['xmi:id']] = { 'classid' : element['classid'], 'name' : element['name'] }
         AssociationDetail_list.append(element)
+        model_element += 1
 
         # 多重性
         elist = item.childNodes
@@ -133,17 +145,21 @@ for item in items:
             'Endid' : 'm%d'%term_cnt['m'],
             'Classid' : idMap[item.getAttribute('xmi:id')]['classid'],
             'Associd' : idMap[item.getAttribute('association')],
+            'Lowval' : 1,
+            'Upval' : 1
         }
         # 取出 lowerValue 和 upperValue
         for e in elist:
             if e.nodeName == 'lowerValue' or e.nodeName == 'upperValue':
-        		  key = 'Lowval' if e.nodeName == 'lowerValue' else 'Upval'
-        	    if e.hasAttribute('value'):
-        			element[key] = 'n' if e.getAttribute('value')=='*' else e.getAttribute('value')
-        		else:
-        			element[key] = '0'
+                key = 'Lowval' if e.nodeName == 'lowerValue' else 'Upval'
+                if e.hasAttribute('value'):
+                    element[key] = 'n' if e.getAttribute('value')=='*' else e.getAttribute('value')
+                else:
+                    element[key] = '0'
+            
         term_cnt['m'] += 1
         Multiplicity_list.append(element)
+        model_element += 1
 
     else:
         # 属性
@@ -153,19 +169,21 @@ for item in items:
         
         term_cnt['a'] += 1
         Attribute_list.append(element)
+        model_element += 1
 
 
 # 处理角色
 printx('正在解析UML图中的 角色 ……')
 for Association in Association_list:
-	element = {
-	    'Roleid' : 'r%d'%term_cnt['r'],
-	    'nameA' : idMap[Association['memberEnd'][1]]['name'],
-	    'nameB' : idMap[Association['memberEnd'][0]]['name'],
-	    'Associd' : Association['id'],
-	}
-	Rolename_list.append(element)
-	term_cnt['r'] += 1
+    element = {
+        'Roleid' : 'r%d'%term_cnt['r'],
+        'nameA' : idMap[Association['memberEnd'][1]]['name'],
+        'nameB' : idMap[Association['memberEnd'][0]]['name'],
+        'Associd' : Association['id'],
+    }
+    Rolename_list.append(element)
+    model_element += 1
+    term_cnt['r'] += 1
 
 
 # 获取所有 ownedParameter 元素
@@ -174,18 +192,19 @@ items = collection.getElementsByTagName('ownedParameter')
 
 # 处理每个 ownedParameter 元素
 for item in items:
-	if item.hasAttribute('name'):
-		# 是函数参数
-	    element = {
-	        'id' : 'p%d'%term_cnt['p'],
-	        'name' : item.getAttribute('name'),
-	        'xmi:id' : item.getAttribute('xmi:id'),
-	        'xmi:type' : item.getAttribute('xmi:type'),
-	        'classid' : idMap[item.getAttribute('type')],
-	    }
-	    idMap[element['classid']] = element['id']
-	    term_cnt['p'] += 1
-	    Parameter_list.append(element)
+    if item.hasAttribute('name'):
+        # 是函数参数
+        element = {
+            'id' : 'p%d'%term_cnt['p'],
+            'name' : item.getAttribute('name'),
+            'xmi:id' : item.getAttribute('xmi:id'),
+            'xmi:type' : item.getAttribute('xmi:type'),
+            'classid' : idMap[item.getAttribute('type')],
+        }
+        idMap[element['classid']] = element['id']
+        term_cnt['p'] += 1
+        Parameter_list.append(element)
+        model_element += 1
 
 
 # 获取所有 ownedOperation 元素
@@ -207,10 +226,10 @@ for item in items:
     for p in item.childNodes:
         if p.nodeName == 'ownedParameter':
             if p.hasAttribute('name'):
-            	element['parametersid'].append(idMap[idMap[p.getAttribute('type')]])
+                element['parametersid'].append(idMap[idMap[p.getAttribute('type')]])
     term_cnt['o'] += 1
     Operation_list.append(element)
-
+    model_element += 1
 
 
 # 获取所有 generalization 元素
@@ -229,7 +248,7 @@ for item in items:
     }
     term_cnt['g'] += 1
     Generalization_list.append(element)
-
+    model_element += 1
 
 # 生成 prolog 代码
 printx('XMI文件 解析完成！')
@@ -239,32 +258,32 @@ fp = open(pl_filename,'w')
 # class 部分
 for Class in Class_list:
     isAbstract = 'f' if Class['xmi:type'] == 'uml:Class' else 't'
-    fp.write("class(%s, '%s', %s).\n"%(Class['id'], Class['name'], isAbstract))
+    fp.write("class(%s, '%s', %s).\n" % (Class['id'], Class['name'], isAbstract))
 fp.write('\n')
 
 # attribute 部分
 for Attribute in Attribute_list:
-    fp.write('attribute(%s, %s, %s, %s).\n'%(Attribute['id'], Attribute['name'], Attribute['attrtype'], Attribute['classid']))
+    fp.write("attribute(%s, '%s', %s, %s).\n" % (Attribute['id'], Attribute['name'], Attribute['attrtype'], Attribute['classid']))
 fp.write('\n')
 
 # operation 部分
 for Operation in Operation_list:
-    fp.write('operation(%s, %s, [%s],  %s).\n'%(Operation['id'], Operation['name'], ','.join(Operation['parametersid']), Operation['classid']))
+    fp.write("operation(%s, '%s', [%s],  %s).\n" % (Operation['id'], Operation['name'], ','.join(Operation['parametersid']), Operation['classid']))
 fp.write('\n')
 
 # parameter 部分
 for Parameter in Parameter_list:
-    fp.write('parameter(%s, %s, %s).\n'%(Parameter['id'], Parameter['name'], Parameter['classid'] ))
+    fp.write("parameter(%s, '%s', %s).\n" % (Parameter['id'], Parameter['name'], Parameter['classid'] ))
 fp.write('\n')
 
 # association 部分
 for Association in Association_list:
-    fp.write('association(%s, %s, %s).\n'%(Association['id'], idMap[Association['memberEnd'][1]]['classid'], idMap[Association['memberEnd'][0]]['classid']))
+    fp.write("association(%s, %s, %s).\n" % (Association['id'], idMap[Association['memberEnd'][1]]['classid'], idMap[Association['memberEnd'][0]]['classid']))
 fp.write('\n')
 
 # rolename 部分
 for Rolename in Rolename_list:
-    fp.write('rolename(%s, %s, %s, %s).\n'%(Rolename['Roleid'], Rolename['nameA'], Rolename['nameB'], Rolename['Associd'] ))
+    fp.write("rolename(%s, '%s', '%s', %s).\n" % (Rolename['Roleid'], Rolename['nameA'], Rolename['nameB'], Rolename['Associd'] ))
 fp.write('\n')
 
 # multiplicity 部分
@@ -278,5 +297,11 @@ for Generalization in Generalization_list:
 fp.write('\n')
 
 fp.close()
+end_time = time.time()
 
 printx('Prolog 文件已生成，见文件 【%s】！'%pl_filename)
+
+printx('The total Numbers of Model Element is %d' % model_element)
+printx('The total time is %f' % (end_time - start_time))
+
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmlns:uml="http://www.omg.org/spec/UML/20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701">
+  <uml:Model name="online shopping" xmi:id="_EkevIODPEei8vb6vgFzQfQ">
+    <packagedElement name="Web User" xmi:id="_EkevIeDPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="login_id" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevIuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="password" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevI-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="attribute11" type="_EkevjuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevJODPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_Ekevh-DPEei8vb6vgFzQfQ" name="" type="_EkevK-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevJeDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevJuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevJ-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkeviODPEei8vb6vgFzQfQ" name="" type="_EkevRuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevKODPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue xmi:id="_EkevKeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevKuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Customer" xmi:id="_EkevK-DPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="id" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevLODPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="address" type="_EkevfeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevLeDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="phone" type="_EkevfuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevLuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="email" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevL-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_Ekevh-DPEei8vb6vgFzQfQ" name="" type="_EkevIeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevMODPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevMeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevMuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute aggregation="composite" association="_EkevieDPEei8vb6vgFzQfQ" name="" type="_EkevNuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevM-DPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevNODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevNeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Account" xmi:id="_EkevNuDPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="id" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevN-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="billing_address" type="_EkevfeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevOODPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="is_closed" type="_EkevkODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevOeDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="open" type="_Ekevf-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevOuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="closed" type="_Ekevf-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevO-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_EkevhODPEei8vb6vgFzQfQ" name="" type="_EkevauDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevPODPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <upperValue value="*" xmi:id="_EkevPeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkevieDPEei8vb6vgFzQfQ" name="" type="_EkevK-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevPuDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevP-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevQODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute aggregation="composite" association="_EkeviuDPEei8vb6vgFzQfQ" name="" type="_EkevRuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevQeDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevQuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevQ-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute aggregation="composite" association="_Ekevi-DPEei8vb6vgFzQfQ" name="" type="_EkevXODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevRODPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <upperValue value="*" xmi:id="_EkevReDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Shopping Cart" xmi:id="_EkevRuDPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="created" type="_Ekevf-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevR-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_EkeviODPEei8vb6vgFzQfQ" name="" type="_EkevIeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevSODPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevSeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevSuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkeviuDPEei8vb6vgFzQfQ" name="" type="_EkevNuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevS-DPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevTODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevTeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkevjODPEei8vb6vgFzQfQ" name="line_item" type="_EkevUODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevTuDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <upperValue value="*" xmi:id="_EkevT-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="LineItem" xmi:id="_EkevUODPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="quantity" type="_EkevjuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevUeDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="price" type="_Ekevj-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevUuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_Ekevg-DPEei8vb6vgFzQfQ" name="" type="_EkevdeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevU-DPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevVODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevVeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkevheDPEei8vb6vgFzQfQ" name="" type="_EkevXODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevVuDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevV-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevWODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkevjODPEei8vb6vgFzQfQ" name="" type="_EkevRuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevWeDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevWuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevW-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Order" xmi:id="_EkevXODPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="number" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevXeDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="ordered" type="_Ekevf-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevXuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="shipped" type="_Ekevf-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevX-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="ship_to" type="_EkevfeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevYODPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="status" type="_Ekeve-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevYeDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="total" type="_EkevgeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevYuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_EkevheDPEei8vb6vgFzQfQ" name="" type="_EkevUODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevY-DPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <upperValue value="*" xmi:id="_EkevZODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkevhuDPEei8vb6vgFzQfQ" name="" type="_EkevauDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevZeDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <upperValue value="*" xmi:id="_EkevZuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_Ekevi-DPEei8vb6vgFzQfQ" name="" type="_EkevNuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevZ-DPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevaODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevaeDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Payment" xmi:id="_EkevauDPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="id" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_Ekeva-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="paid" type="_Ekevf-DPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevbODPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="total" type="_EkevgeDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevbeDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="details" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevbuDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_EkevhODPEei8vb6vgFzQfQ" name="" type="_EkevNuDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_Ekevb-DPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_EkevcODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevceDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+      <ownedAttribute association="_EkevhuDPEei8vb6vgFzQfQ" name="" type="_EkevXODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevcuDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <lowerValue value="1" xmi:id="_Ekevc-DPEei8vb6vgFzQfQ" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="_EkevdODPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="Product" xmi:id="_EkevdeDPEei8vb6vgFzQfQ" xmi:type="uml:Class">
+      <ownedAttribute name="id" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkevduDPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="name" type="_EkevfODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_Ekevd-DPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute name="supplier" type="_EkevguDPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkeveODPEei8vb6vgFzQfQ" xmi:type="uml:Property"/>
+      <ownedAttribute association="_Ekevg-DPEei8vb6vgFzQfQ" name="" type="_EkevUODPEei8vb6vgFzQfQ" visibility="private" xmi:id="_EkeveeDPEei8vb6vgFzQfQ" xmi:type="uml:Property">
+        <upperValue value="*" xmi:id="_EkeveuDPEei8vb6vgFzQfQ" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement name="OrderStatus" xmi:id="_Ekeve-DPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="String" xmi:id="_EkevfODPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="Address" xmi:id="_EkevfeDPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="Phone" xmi:id="_EkevfuDPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="Date" xmi:id="_Ekevf-DPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="UserState" xmi:id="_EkevgODPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="Real" xmi:id="_EkevgeDPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement name="Supplier" xmi:id="_EkevguDPEei8vb6vgFzQfQ" xmi:type="uml:Class"/>
+    <packagedElement memberEnd="_EkevU-DPEei8vb6vgFzQfQ _EkeveeDPEei8vb6vgFzQfQ" name="" xmi:id="_Ekevg-DPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_Ekevb-DPEei8vb6vgFzQfQ _EkevPODPEei8vb6vgFzQfQ" name="" xmi:id="_EkevhODPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevY-DPEei8vb6vgFzQfQ _EkevVuDPEei8vb6vgFzQfQ" name="" xmi:id="_EkevheDPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevZeDPEei8vb6vgFzQfQ _EkevcuDPEei8vb6vgFzQfQ" name="" xmi:id="_EkevhuDPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevMODPEei8vb6vgFzQfQ _EkevJeDPEei8vb6vgFzQfQ" name="" xmi:id="_Ekevh-DPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevKODPEei8vb6vgFzQfQ _EkevSODPEei8vb6vgFzQfQ" name="" xmi:id="_EkeviODPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevPuDPEei8vb6vgFzQfQ _EkevM-DPEei8vb6vgFzQfQ" name="" xmi:id="_EkevieDPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevQeDPEei8vb6vgFzQfQ _EkevS-DPEei8vb6vgFzQfQ" name="" xmi:id="_EkeviuDPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevZ-DPEei8vb6vgFzQfQ _EkevRODPEei8vb6vgFzQfQ" name="" xmi:id="_Ekevi-DPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement memberEnd="_EkevWeDPEei8vb6vgFzQfQ _EkevTuDPEei8vb6vgFzQfQ" name="" xmi:id="_EkevjODPEei8vb6vgFzQfQ" xmi:type="uml:Association"/>
+    <packagedElement name="PrimitiveTypes" xmi:id="_EkevjeDPEei8vb6vgFzQfQ" xmi:type="uml:Package">
+      <packagedElement name="int" xmi:id="_EkevjuDPEei8vb6vgFzQfQ" xmi:type="uml:PrimitiveType"/>
+      <packagedElement name="float" xmi:id="_Ekevj-DPEei8vb6vgFzQfQ" xmi:type="uml:PrimitiveType"/>
+      <packagedElement name="boolean" xmi:id="_EkevkODPEei8vb6vgFzQfQ" xmi:type="uml:PrimitiveType"/>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>

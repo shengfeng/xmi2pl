@@ -7,33 +7,33 @@ class(c5, 'RentalStation', f).
 class(c6, 'Person', f).
 class(c7, 'Date', f).
 
-attribute(a1, registration, string, c1).
-attribute(a2, numWheels, integer, c1).
-attribute(a3, category, integer, c2).
-attribute(a4, numSaddles, integer, c3).
-attribute(a5, cc, integer, c3).
-attribute(a6, name, string, c4).
-attribute(a7, numEmployee, integer, c4).
-attribute(a8, location, string, c5).
-attribute(a9, firstname, string, c6).
-attribute(a10, lastname, string, c6).
-attribute(a11, age, integer, c6).
-attribute(a12, isMarried, boolean, c6).
+attribute(a1, 'registration', string, c1).
+attribute(a2, 'numWheels', int, c1).
+attribute(a3, 'category', int, c2).
+attribute(a4, 'numSaddles', int, c3).
+attribute(a5, 'cc', int, c3).
+attribute(a6, 'name', string, c4).
+attribute(a7, 'numEmployees', int, c4).
+attribute(a8, 'location', string, c5).
+attribute(a9, 'firstname', string, c6).
+attribute(a10, 'lastname', string, c6).
+attribute(a11, 'age', int, c6).
+attribute(a12, 'isMarried', boolean, c6).
 
-operation(o1, stockPrice, [],  c4).
-operation(o2, income, [p1],  c6).
+operation(o1, 'stockPrice', [],  c4).
+operation(o2, 'income', [p1],  c6).
 
-parameter(p1, d, c7).
+parameter(p1, 'd', c7).
 
 association(s1, c1, c4).
 association(s2, c4, c5).
 association(s3, c5, c6).
 association(s4, c5, c6).
 
-rolename(r1, vehicle, company, s1).
-rolename(r2, company, rentalStation, s2).
-rolename(r3, managedStation, manager, s3).
-rolename(r4, employer, employee, s4).
+rolename(r1, 'employee', 'employer', s1).
+rolename(r2, 'vehicle', 'company', s2).
+rolename(r3, 'company', 'rentalstation', s3).
+rolename(r4, 'manager', 'managedStation', s4).
 
 multiplicity(m1, c1, 0, n, s1).
 multiplicity(m2, c4, 0, 1, s1).
@@ -120,18 +120,19 @@ x_reps_others_fromlist(X,Ds,[Y|Os],[Y|Ys]) :-
 
 
 %Subset
-sublist( [], _ ).
-sublist( [X|XS], [X|XSS] ) :- sublist( XS, XSS ).
-sublist( [X|XS], [_|XSS] ) :- sublist( [X|XS], XSS ).
+subset( [], _ ).
+subset( [X|XS], [X|XSS] ) :- subset( XS, XSS ).
+subset( [X|XS], [_|XSS] ) :- subset( [X|XS], XSS ).
    
-%Rules
 
-gen_rule() :-
+%Rules
+gen_rule :-
   generalization(_, Superid, Subid),
   findall(Y, objects_from_class(Subid, Y), IDS), 
   findall(Y, objects_from_class(Superid, Y), IDS2),
-  sublist(IDS, IDS2).
+  subset(IDS, IDS2).
 
+  
 %if the class not satisfied, execute the latter 
 objcl_exist_rule(R) :-
 	object(Objid, _, _),
@@ -139,19 +140,21 @@ objcl_exist_rule(R) :-
 	(\+class(Classid, _, _), atom_concat('Error: 301 in ', Objid, R));   
 	fail.
 
+	
 %multiplicity 
-multi_conform(R) :-
+multi_conform :-
 	association(AID, CA, CB),
 	object(SID, _, CA),
 	object(RID, _, CB),
 	link(_, SID, RID, AID).
 
 
-op_exist_rule():-
+op_exist_rule :-
 	mcall(_, Opname, _, _),
 	operation(_,Opname,_,Classid),
     class(Classid, _).
 
+	
 assoc_exist(R):-
   link(Msgid, Sndobjid, Recobjid),
   object(Sndobjid, _, ClassA),
