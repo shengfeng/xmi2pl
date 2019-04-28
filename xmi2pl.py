@@ -2,13 +2,14 @@
 import sys
 from xml.dom.minidom import parse
 import time
+import json
 
 # 待解析 XMI 文件
-xmi_filename = 'data/online shopping.xmi'
+xmi_filename = 'data/object.xmi'
 
 # 生成的 prolog 文件
 # pl_filename = 'result/%s.pl'%xmi_filename.split('.')[0]
-pl_filename = 'result/online shopping.pl'
+pl_filename = 'result/object.pl'
 
 # 编码信息
 input_encoding = sys.stdin.encoding
@@ -22,12 +23,12 @@ def printx(s, end = '\n'):
     if output_encoding == None:
         sys.stdout.write(s)
         sys.stdout.write('\n')
-    elif isinstance(s,str):
+    elif isinstance(s, str):
         # s = s.decode(file_encoding)
         s += end
         # s = s.encode(output_encoding)
         sys.stdout.write(s)
-    elif isinstance(s,dict):
+    elif isinstance(s, dict):
         s = json.dumps(s, indent=4, ensure_ascii=False)
         s += end
         s = s.encode(output_encoding)
@@ -299,9 +300,10 @@ fp.write('\n')
 fp.close()
 end_time = time.time()
 
-printx('Prolog 文件已生成，见文件 【%s】！'%pl_filename)
+printx('Prolog 文件已生成，见文件 [%s]！'%pl_filename)
 
-printx('The total Numbers of Model Element is %d' % model_element)
+printx('The total Number of classes is %d' % len(Class_list))
+printx('The total Number of Model Element is %d' % model_element)
 printx('The total time is %f' % (end_time - start_time))
 
 

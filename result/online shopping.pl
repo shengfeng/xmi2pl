@@ -45,6 +45,7 @@ attribute(a27, 'name', c10, c8).
 attribute(a28, 'supplier', c16, c8).
 
 
+
 association(s1, c8, c5).
 association(s2, c3, c7).
 association(s3, c5, c6).

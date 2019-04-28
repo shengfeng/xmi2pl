@@ -97,70 +97,72 @@ parents(Superid, Subid) :-
   parents(X, Subid).
 
 
-objects_from_class(X, Y) :-
-    object(_, Y, X).
-	
-objects_from_class(X, Y) :-
-    generalization(_, X, CN),
-    objects_from_class(CN, Y).
+objects_ids(Classid, Objid) :-
+  object(Objid, _, Classid).
+objects_ids(Classid, Objid) :-
+  generalization(_, Classid, Z),
+  objects_ids(Z, Objid).
+
+all_objects_ids(Classid, IDS) :-
+  findall(Y, objects_ids(Classid, Y), IDS).
 
 %Distinct
 list_reps([],[]).
 list_reps([X|Xs],Ds1) :-
-   x_reps_others_fromlist(X,Ds,Os,Xs),
-   list_reps(Os,Ds0),
-   append(Ds,Ds0,Ds1).
+  x_reps_others_fromlist(X,Ds,Os,Xs),
+  list_reps(Os,Ds0),
+  append(Ds,Ds0,Ds1).
 
 x_reps_others_fromlist(_X,[],[],[]).
 x_reps_others_fromlist(X,[X|Ds],Os,[X|Ys]) :-
-   x_reps_others_fromlist(X,Ds,Os,Ys).
+  x_reps_others_fromlist(X,Ds,Os,Ys).
 x_reps_others_fromlist(X,Ds,[Y|Os],[Y|Ys]) :-
-   dif(Y,X),
-   x_reps_others_fromlist(X,Ds,Os,Ys).
+  dif(Y,X),
+  x_reps_others_fromlist(X,Ds,Os,Ys).
 
 
 %Subset
 subset( [], _ ).
 subset( [X|XS], [X|XSS] ) :- subset( XS, XSS ).
 subset( [X|XS], [_|XSS] ) :- subset( [X|XS], XSS ).
-   
+
 
 %Rules
-gen_rule :-
+gen_rule(Superid, Subid) :-
   generalization(_, Superid, Subid),
-  findall(Y, objects_from_class(Subid, Y), IDS), 
-  findall(Y, objects_from_class(Superid, Y), IDS2),
+  all_objects_ids(Subid, IDS), 
+  write(IDS), nl,
+  all_objects_ids(Superid, IDS2),
+  write(IDS2), nl,
   subset(IDS, IDS2).
 
   
 %if the class not satisfied, execute the latter 
-objcl_exist_rule(R) :-
-	object(Objid, _, _),
+objcl_exist_rule(Objid, Classid) :-
 	object(Objid, _, Classid),
-	(\+class(Classid, _, _), atom_concat('Error: 301 in ', Objid, R));   
-	fail.
+  class(Classid, _, _), 
+  write("Object: "), write(Objid), nl,
+  write("Class: "), write(Classid).
 
 	
 %multiplicity 
-multi_conform :-
+multi_conform(AID) :-
 	association(AID, CA, CB),
 	object(SID, _, CA),
 	object(RID, _, CB),
-	link(_, SID, RID, AID).
+	link(_, SID, RID).
 
 
-op_exist_rule :-
-	mcall(_, Opname, _, _),
-	operation(_,Opname,_,Classid),
-    class(Classid, _).
+% op_exist_rule :-
+% 	mcall(_, Opname, _, _),
+% 	operation(_,Opname,_,Classid),
+%     class(Classid, _).
 
 	
-assoc_exist(R):-
+assoc_exist(Msgid, Sndobjid, Recobjid, ClassA, ClassB):-
   link(Msgid, Sndobjid, Recobjid),
   object(Sndobjid, _, ClassA),
   object(Recobjid, _, ClassB),
-  (\+association(_, ClassA, ClassB), 
-   \+association(_, ClassB, ClassA), 
-  atom_concat('Error: 303 in ', Msgid, R));
-  fail.
+  association(_, ClassA, ClassB); 
+  association(_, ClassB, ClassA).
 
